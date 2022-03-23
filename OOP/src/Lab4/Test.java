@@ -11,6 +11,7 @@ public class Test
 
         ArrayList<Worker> workersArrayList = new ArrayList<>();
 
+
         Scanner sc=new Scanner(System.in);
         System.out.println("--->>>[PROGRAM STATUS]: Factory Management System is running.....");
         boolean programRun = true;
@@ -41,14 +42,16 @@ public class Test
                         int workerMonthlySalary = sc.nextInt();
                         System.out.print("Job Description: ");
                         String workersJobDescription = sc.next();
-                        Worker worker1 = new Worker(workerID,workerFullName,workerMonthlySalary,workersJobDescription);
+                        System.out.println("Is master ? [true or false");
+                        boolean workerIsMaster = sc.hasNext();
+                        Worker worker1 = new Worker(workerID,workerFullName,workerMonthlySalary,workersJobDescription,workerIsMaster);
                         workersArrayList.add(worker1);
                         System.out.println("--->>>>[PROGRAM STATUS]: New Worker Succesfully Added....");
                         System.out.println(">>>>>>>>Worker Info Adding Page<<<<<<<<<<");
                         System.out.println("MENU OPTIONS [1 through 3] :  ");
                         System.out.println("***       Press 1 to provide another new worker information    ***");
                         System.out.println("***       Press 2 to go back to the Main Menu                  ***");
-                        System.out.println("***       Press 3 to terminate the program             ***");
+                        System.out.println("***       Press 3 to terminate the program                     ***");
                         int userChoice1 = sc.nextInt();
 
                         switch (userChoice1)
@@ -67,7 +70,10 @@ public class Test
                                 break;
                         }
 
+                        break;
+
                     }
+                    break;
 
 
                 case 2:
@@ -93,6 +99,7 @@ public class Test
 
     public static void displayArrayInfo (ArrayList<Worker> workersArrayList)
     {
+        Worker workerClass = new Worker();
         Worker[] workersArray = new Worker[workersArrayList.size()];
         workersArray = ArrayList2Array(workersArrayList);
         System.out.println(">>>>>>>>>>>>>>>> Patient Information Display Page<<<<<<<<<<<<<<");
@@ -105,6 +112,8 @@ public class Test
             System.out.println("Full Name: "+workersArray[i].getFullName());
             System.out.println("Monthly Salary: "+workersArray[i].getMonthlySalary());
             System.out.println("Job Description: "+workersArray[i].getJobDescription());
+            System.out.println("The annual Salary of the Worker is: "+workerClass.calculateAnnualIncome(workersArray[i].isMaster()));
+
             System.out.println("----------------------------------------------------------");
 
         }
