@@ -62,22 +62,26 @@ public class Worker
         this.jobDescription = jobDescription;
     }
 
-    public double calculateAnnualIncome(boolean isMaster)
+    public double calculateAnnualIncome()
     {
-        if(isMaster == true)
+        double annualSalary=0;
+        double salary =  this.getMonthlySalary();
+        if(this.isMaster == true)
         {
-           double salary =  this.getMonthlySalary();
-           double annualSalary = 12*salary;
-           return (annualSalary + (20/100)*annualSalary);
+
+           double calculatedAnnualSalary = 12*salary;
+           annualSalary = (calculatedAnnualSalary)+ ((20/100)*calculatedAnnualSalary);
+
+
+
         }
        if(isMaster == false)
        {
-           double salary =  this.getMonthlySalary();
-           double annualSalary = 12*salary;
-           return annualSalary;
-       }
+           double calculatedAnnualSalary = 12*salary;
+           annualSalary = calculatedAnnualSalary;
 
-        return 0;
+       }
+       return annualSalary;
     }
 }
 

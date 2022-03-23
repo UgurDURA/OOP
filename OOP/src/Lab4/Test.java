@@ -112,7 +112,7 @@ public class Test
             System.out.println("Full Name: "+workersArray[i].getFullName());
             System.out.println("Monthly Salary: "+workersArray[i].getMonthlySalary());
             System.out.println("Job Description: "+workersArray[i].getJobDescription());
-            System.out.println("The annual Salary of the Worker is: "+workerClass.calculateAnnualIncome(workersArray[i].isMaster()));
+            System.out.println("The annual Salary of the Worker is: "+workerClass.calculateAnnualIncome());
             System.out.println("----------------------------------------------------------");
 
         }
