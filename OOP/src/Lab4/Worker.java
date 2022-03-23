@@ -7,6 +7,15 @@ public class Worker
     private double monthlySalary;
     private String jobDescription;
 
+    public Worker(int workerID, String workerFullName, int workerMonthlySalary, String workersJobDescription)
+    {
+        this.workerID = workerID;
+        this.fullName = workerFullName;
+        this.monthlySalary = workerMonthlySalary;
+        this.jobDescription = workersJobDescription;
+
+    }
+
     public int getWorkerID() {
         return workerID;
     }
