@@ -42,8 +42,8 @@ public class Test
                         int workerMonthlySalary = sc.nextInt();
                         System.out.print("Job Description: ");
                         String workersJobDescription = sc.next();
-                        System.out.println("Is master ? [true or false");
-                        boolean workerIsMaster = sc.hasNext();
+                        System.out.println("Is master ? [true or false]");
+                        boolean workerIsMaster = sc.nextBoolean();
                         Worker worker1 = new Worker(workerID,workerFullName,workerMonthlySalary,workersJobDescription,workerIsMaster);
                         workersArrayList.add(worker1);
                         System.out.println("--->>>>[PROGRAM STATUS]: New Worker Succesfully Added....");
@@ -113,7 +113,6 @@ public class Test
             System.out.println("Monthly Salary: "+workersArray[i].getMonthlySalary());
             System.out.println("Job Description: "+workersArray[i].getJobDescription());
             System.out.println("The annual Salary of the Worker is: "+workerClass.calculateAnnualIncome(workersArray[i].isMaster()));
-
             System.out.println("----------------------------------------------------------");
 
         }
