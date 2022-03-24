@@ -1,4 +1,6 @@
 package Lab5;
 
-public class Test {
+public class Test
+{
+
 }
