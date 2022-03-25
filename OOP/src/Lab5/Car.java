@@ -7,6 +7,20 @@ public class Car
     private double topSpeed;
     private double price;
 
+    Car()
+    {
+
+    }
+    Car(int modelYear, String model, double topSpeed, double price)
+    {
+        setModelYear(modelYear);
+        setModel(model);
+        setTopSpeed(topSpeed);
+        setPrice(price);
+        printInfo();
+
+    }
+
     public int getModelYear() {
         return modelYear;
     }
@@ -40,6 +54,14 @@ public class Car
     }
     public void printInfo()
     {
+        System.out.println("------------------------------------------------");
+        System.out.println("Model Year: "+this.modelYear);
+        System.out.println("Model: "+this.model);
+        System.out.println("Top Speed: "+this.topSpeed);
+        System.out.println("Price: "+this.price);
+        System.out.println("------------------------------------------------");
+
+
 
     }
 }
