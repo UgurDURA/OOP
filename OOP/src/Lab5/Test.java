@@ -1,22 +1,46 @@
 package Lab5;
 
+import java.util.Scanner;
+
 public class Test
 {
     public static void main(String[] args)
     {
-        Car[] carArray = new Car[5];
+        final int arraySize = 2;
+        Car[] carArray = new Car[arraySize];
+        Car car = new Car();
+        Scanner sc=new Scanner(System.in);
 
-        Car car1 = new Car(2012,"BMW",200,10000);
-        Car car2 = new Car(2020, "Mercedes", 200, 20000);
-        Car car3 = new Car(2021, "Audi", 100, 10000);
-        Car car4 = new Car(2022, "Fiat", 150, 40000);
-        Car car5 = new Car(2010, "WolskWogen", 300, 50000);
+        for (int i =0; arraySize>i;i++)
+        {
+            System.out.println(">>>Please provide the following information for the Car: ");
+            System.out.println("Model Year : ");
+            int carModelYear = sc.nextInt();
+            System.out.println("Model Name: ");
+            String carModelName = sc.next();
+            System.out.println("Top Speed: ");
+            int carTopSpeed = sc.nextInt();
+            System.out.println("Price : ");
+            int carPrice = sc.nextInt();
+            System.out.println(">>>Please provide the Engine Informations");
+            System.out.println("Volume: ");
+            int engineVolume = sc.nextInt();
+            System.out.println("Number of cylinders: ");
+            int engineCylinderNumber = sc.nextInt();
+            Engine engineObject = new Engine(engineVolume,engineCylinderNumber);
+            Car carObject = new Car(carModelYear,carModelName,carTopSpeed,carPrice,engineObject);
 
-        carArray[0] = car1;
-        carArray[1] = car2;
-        carArray[2] = car3;
-        carArray[3] = car4;
-        carArray[4] = car5;
+            carArray[i] = carObject;
+
+
+        }
+
+        car.printInfo();
+
+
+
+
+
 
 
 

@@ -59,7 +59,7 @@ public class Test
 
 
                 case 3:
-                    programRun=false;
+                    programRun = false;
                     System.out.println("------------------------------------------------");
                     System.out.println("---->>>> [PPOGRAM STATUS] Program terminated Succesfully");
                     System.out.println("------------------------------------------------");
@@ -90,6 +90,7 @@ public class Test
 
     public static void printArray()
     {
+
 
     }
 }

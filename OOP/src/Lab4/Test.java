@@ -138,6 +138,23 @@ public class Test
 
     }
 
+
+    public void lelelo ()
+    {
+        int arraySize = 0;
+
+        int[] leleloarray = new int [arraySize];
+
+        //soyledi x
+
+        leleloarray = new int[arraySize];
+
+
+
+
+
+    }
+
 }
 
 
