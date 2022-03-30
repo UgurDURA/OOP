@@ -1,5 +1,6 @@
-package SE311LAB1;
+package SE311LAB1.FRIDAY;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 class Singleton
@@ -34,6 +35,15 @@ class Singleton
         return obj;
     }
 
+    public static void registerInstance(ArrayList<String> list)
+    {
+        for(int i = 0; i<list.size();i++)
+        {
+            registerInstances(list.get(i));
+
+        }
+    }
+
     public static String getInstance(String name)
     {
         name = String.valueOf(createdObject.get(name));
@@ -45,3 +55,7 @@ class Singleton
 
 
 }
+
+//Questions
+// Why only 2 elements are reigstered for the Array List implementations
+//How can modify the code to return the object name (Get instance(Singletion obj)
