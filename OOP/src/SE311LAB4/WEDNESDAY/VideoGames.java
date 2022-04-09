@@ -120,16 +120,16 @@ class Client
         VideoGames gameType2 = new Composite("Shooters FPS and TPS");
 
         VideoGames gameName = new Composite("Minecraft");
-        gameName.add(new Leaf());
-
-
-
-
-
-
-
-
-        companySandBox.add();
+//        gameName.add(new Leaf());
+//
+//
+//
+//
+//
+//
+//
+//
+//        companySandBox.add();
 
     }
 }
