@@ -11,12 +11,10 @@ public class UDPClient
         InetAddress address = InetAddress.getByName("localhost");
         String str = "Client is connected";
         byte[] buf = str.getBytes(StandardCharsets.UTF_8);
-
-        while(true)
-        {
+ 
             DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 5555);
             client.send(packet);
-        }
+         
 
 
 
