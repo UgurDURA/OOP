@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class UDPServerSocket
 {
@@ -24,19 +25,31 @@ public class UDPServerSocket
             s = ss.accept();
             InputStream in = s.getInputStream();
 
-            dis = new DataInputStream(in);
+            DataInputStream dIn = new DataInputStream(s.getInputStream());
 
-            System.out.println((String) dis.toString());
+            int length = dIn.readInt();                    // read length of incoming message
+            if(length>0) {
+                byte[] message = new byte[length];
+                dIn.readFully(message, 0, message.length); // read the message
 
-            len = dis.readByte();
-            data = new byte[len];
-
-            if(len >0)
-            {
-                dis.readFully(data, 0, data.length);
-                System.out.println(data.toString());
-
+                System.out.println(Arrays.toString(message));
             }
+
+
+
+//            dis = new DataInputStream(in);
+//
+//            System.out.println((String) dis.toString());
+//
+//            len = dis.readByte();
+//            data = new byte[len];
+//
+//            if(len >0)
+//            {
+//                dis.readFully(data, 0, data.length);
+//                System.out.println(data.toString());
+//
+//            }
 
 
         }
