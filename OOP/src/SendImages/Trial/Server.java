@@ -8,6 +8,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Arrays;
+import java.util.Base64;
 
 public class Server
 {
@@ -22,8 +23,8 @@ public class Server
 
 
 
-        while (true)
-        {
+//        while (true)
+//        {
             int port = 5555;
 
             server = new ServerSocket(port);
@@ -45,7 +46,9 @@ public class Server
             baos.write(buffer, 0 , in.read(buffer));
 
 
+
             byte result[] = baos.toByteArray();
+//            result = Base64.getDecoder().decode(result);
 
             System.out.println(result.length);
 
@@ -112,5 +115,5 @@ public class Server
 
 
 
-    }
+//    }
 }
