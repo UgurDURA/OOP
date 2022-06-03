@@ -21,10 +21,52 @@ class Customer{
     }
 }
 
+
+
+
 interface IBank{
     void addCustomer(Customer c, int limit);
     int learnLimit(int tc);
     void raiseLimit(int tc, int newLimit);
+}
+
+class Adapter extends New_Bank_A implements IBank
+{
+
+    @Override
+    public void addCustomer(Customer c, int limit)
+    {
+       customers.put(c,limit);
+    }
+
+    @Override
+    public int learnLimit(int tc)
+    {
+        for(Map.Entry<Customer,Integer> tuple : customers.entrySet())
+        {
+            if(tuple.getKey().getTC() == tc)
+            {
+                return tuple.getValue();
+            }
+
+        }
+        return -1;
+    }
+
+    @Override
+    public void raiseLimit(int tc, int newLimit)
+    {
+        String name = null;
+        for (Map.Entry<Customer, Integer> tuple : customers.entrySet()) {
+            if(tuple.getKey().getTC() == tc) {
+                name = tuple.getKey().getFullname();
+                break;
+            }
+        }
+        changeLimit(name,newLimit);
+
+
+    }
 }
 
 class Bank_A implements IBank{
@@ -65,18 +107,28 @@ class Bank_A implements IBank{
 
 public class Bank{
     public static void main(String [] args){
-        Customer c1 = new Customer("Erdem Okur", 12345);
-        IBank b1 = new Bank_A();
+//        Customer c1 = new Customer("Erdem Okur", 12345);
+//        IBank b1 = new Bank_A();
+//
+//        b1.addCustomer(c1,9000);
+//
+//        System.out.println("Initial Limits:");
+//        System.out.println(b1.learnLimit(12345));
+//
+//        b1.raiseLimit(12345,17000);
+//
+//        System.out.println("Edited Limits:");
+//        System.out.println(b1.learnLimit(12345));
 
-        b1.addCustomer(c1,9000);
-
+        Customer c2 = new Customer("Ugur DURA", 230366659);
+        IBank b2 = new Adapter();
+        b2.addCustomer(c2,5000);
         System.out.println("Initial Limits:");
-        System.out.println(b1.learnLimit(12345));
+        System.out.println(b2.learnLimit(230366659));
 
-        b1.raiseLimit(12345,17000);
-
+        b2.raiseLimit(230366659,100000);
         System.out.println("Edited Limits:");
-        System.out.println(b1.learnLimit(12345));
+        System.out.println(b2.learnLimit(230366659));
 
     }
 }
